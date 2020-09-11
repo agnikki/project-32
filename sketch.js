@@ -7,12 +7,14 @@ var engine, world;
 var polygon;
 var block1, block2, block3, block4, block5,block6,block7,block8,block9;
 var score = 0;
+var bgImage;
 
 
 function preload(){
   polygon_img=loadImage('hexagon.png'); 
-  bg_night=loadImage('11-15NightDriving-1.jpg')
-  bg_day=loadImage('Daytime.jpg')
+  //bg_night=loadImage('11-15NightDriving-1.jpg')
+  //bg_day=loadImage('Daytime.jpg')
+  getTime();
 }
 
 
@@ -40,8 +42,9 @@ polygon=new Polygon(200,200,40,40);
 
 function draw() {
 
-  background(255,255,255); 
-
+  if(bgImage){
+background(bgImage);
+  }
   stroke("black");
   textSize(20)
   
@@ -94,15 +97,15 @@ async function getTime(){
 var responseJSON=await response.json();
 
 var datetime = responseJSON.datetime;
-var hour = datetie.slice(11,13);
+var hour = datetime.slice(11,13);
 
-if(hour>=0600 && hour<=1900){
-  background(bg_night);
+if(hour>=06 && hour<=19){
+  bg="Daytime.jpg";
 }else{
-  background(bg_day);
+  bg="night.jpg";
 }
 //backgroundImg(bg);
 //console.log(backgroundImg);
-
+bgImage=loadImage(bg);
 }
 
