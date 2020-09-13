@@ -93,12 +93,12 @@ function keyPressed(){
   }
 }
 async function getTime(){
-  var response =await fetch("http://worldtimeapi.org/timezone/America/Chicago");
+  var response =await fetch("http://worldtimeapi.org/api/timezone/America/Chicago");
 var responseJSON=await response.json();
 
 var datetime = responseJSON.datetime;
 var hour = datetime.slice(11,13);
-
+console.log(hour);
 if(hour>=06 && hour<=19){
   bg="Daytime.jpg";
 }else{

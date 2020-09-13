@@ -20,7 +20,7 @@ class Block {
       }
 
         display(){
-        console.log(this.body.speed);
+        //console.log(this.body.speed);
         if(this.body.speed < 4){
           var angle = this.body.angle;
           push();
@@ -44,12 +44,13 @@ class Block {
         }
       
       }
-    }
+    
     
     
         
-    function score(){
-      if(this.visiblity < 0 && this.visibility >- 1005){
+     score(){
+      if(this.Visiblity < 0 && this.Visiblity >- 1005){
         score++;
       }
     }
+  }
